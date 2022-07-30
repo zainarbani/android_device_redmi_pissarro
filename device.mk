@@ -109,5 +109,6 @@ PRODUCT_SHIPPING_API_LEVEL := 30
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# TODO : making vendor trees using oss or miui
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/pissarro/pissarro-vendor.mk)
+# $(call inherit-product, vendor/xiaomi/pissarro/pissarro-vendor.mk)

@@ -77,7 +77,7 @@ PRODUCT_PACKAGES += \
     typec_play_headset.sh \
 
 PRODUCT_PACKAGES += \
-    fstab.emmc \
+    fstab.mt6877 \
     factory_init.connectivity.rc \
     factory_init.project.rc \
     factory_init.rc \
@@ -97,10 +97,9 @@ PRODUCT_PACKAGES += \
     multi_init.rc \
     init.recovery.hardware.rc \
     init.recovery.mt6877.rc \
-    miui.factoryreset.rc \
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.emmc:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.emmc
+    $(LOCAL_PATH)/rootdir/etc/fstab.mt6877:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.mt6877
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 30

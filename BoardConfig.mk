@@ -13,6 +13,7 @@ AB_OTA_PARTITIONS += \
     vendor \
     product \
     boot \
+    odm \
     vbmeta_system
 BOARD_USES_RECOVERY_AS_BOOT := true
 
@@ -85,6 +86,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 115234275328
 BUILD_WITHOUT_VENDOR := true
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_PRODUCT := product
+TARGET_COPY_OUT_ODM := odm
 
 # Dynamic Partition
 TARGET_USES_PREBUILT_DYNAMIC_PARTITIONS := true
@@ -149,6 +151,7 @@ BUILD_WITHOUT_VENDOR := true
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_PRODUCT := product
 BOARD_PREBUILT_VENDORIMAGE := device/xiaomi/pissarro/prebuilts/vendor.img
+BOARD_PREBUILT_ODMIMAGE := $(DEVICE_PATH)/prebuilts/odm.img
 
 # Inherit the proprietary files
 # include vendor/xiaomi/pissarro/BoardConfigVendor.mk

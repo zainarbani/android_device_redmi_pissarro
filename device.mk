@@ -61,22 +61,6 @@ PRODUCT_CHARACTERISTICS := default
 
 # Rootdir
 PRODUCT_PACKAGES += \
-    capture.sh \
-    capture_headsetmic.sh \
-    mishow.sh \
-    playback.sh \
-    playback_headset.sh \
-    setup_headsetmic2headphone.sh \
-    setup_headsetmic2rcv.sh \
-    setup_mainmic2headphone.sh \
-    setup_rcv2mainmic.sh \
-    setup_rcv2topmic.sh \
-    setup_topmic2headphone.sh \
-    teardown_loopback.sh \
-    typec_capture_headset.sh \
-    typec_play_headset.sh \
-
-PRODUCT_PACKAGES += \
     fstab.mt6877 \
     factory_init.connectivity.rc \
     factory_init.project.rc \

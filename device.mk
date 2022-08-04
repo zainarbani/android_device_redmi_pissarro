@@ -13,15 +13,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
+# Dalvik VM Configuration
+$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
+
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-impl \
-    android.hardware.boot@1.2-impl.recovery \
-    android.hardware.boot@1.2-service
+    android.hardware.boot@1.1-mtkimpl \
+    android.hardware.boot@1.1-mtkimpl.recovery
 
 PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload \
     update_verifier
+
+PRODUCT_PACKAGES_DEBUG += \
+    update_engine_client \
+    bootctl
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
@@ -41,8 +47,11 @@ PRODUCT_PACKAGES += \
 
 # fastbootd
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.1-impl-mock \
     fastbootd
+
+# MTK PlPath Utils
+PRODUCT_PACKAGES += \
+    mtk_plpath_utils.recovery
 
 # Health
 PRODUCT_PACKAGES += \
@@ -56,17 +65,10 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# Product characteristics
-PRODUCT_CHARACTERISTICS := default
-
 # Rootdir
 PRODUCT_PACKAGES += \
     fstab.mt6877 \
-    factory_init.connectivity.rc \
-    factory_init.project.rc \
-    factory_init.rc \
     init.aee.rc \
-    init.ago.rc \
     init.connectivity.rc \
     init.mi_thermald.rc \
     init.modem.rc \
@@ -74,16 +76,11 @@ PRODUCT_PACKAGES += \
     init.mt6877.usb.rc \
     init.project.rc \
     init.sensor_2_0.rc \
-    meta_init.connectivity.rc \
-    meta_init.modem.rc \
-    meta_init.project.rc \
-    meta_init.rc \
-    multi_init.rc \
-    init.recovery.hardware.rc \
     init.recovery.mt6877.rc \
+    ramdisk-fstab.mt6877
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.mt6877:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.mt6877
+    $(LOCAL_PATH)/rootdir/etc/fstab.mt6877:$(TARGET_RECOVERY_ROOT_OUT)/first_stage_ramdisk/fstab.mt6877
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 30
